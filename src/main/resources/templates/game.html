@@ -1,0 +1,40 @@
+<html>
+
+	<head>
+		
+		<title>Wordle</title>
+		
+	</head>
+	
+	<body>
+
+		<h3 th:text="${timestampModel}" />
+		
+		<div>
+		
+			<h2>Spielfeld</h2>
+			<hr/>
+			<table border="1">
+								
+				<tbody>
+				
+					<tr th:each="person : ${personenModel}">
+						<td th:text="${person.firstName}"</td>
+						<td th:text="${person.lastName}"</td>
+						<td th:text="${person.email}"</td>
+						<td th:text="${person.age}"</td>
+					<tr>
+					
+				</tbody>
+			
+			</table>
+			
+		</div>
+
+
+
+
+
+	</body>
+	
+</html>

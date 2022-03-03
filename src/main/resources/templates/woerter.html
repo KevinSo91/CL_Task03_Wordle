@@ -1,0 +1,44 @@
+<html>
+
+	<head>
+	
+		<title>Liste Wörter</title>
+	
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+		crossorigin="anonymous">
+				
+	</head>
+	
+	<body>
+	
+	<div class ="container">
+	
+		<h1>Liste aller Wörter:<h3>
+		<hr/>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Wort</th>
+					<th>Länge</th>
+					<th>Sprache</th>
+				</tr>
+				
+			</thead>
+			<tbody>
+				<tr th:each="wort : ${woerterListe}">
+					<td th:text="${wort.wort}"></td>
+					<td th:text="${wort.laenge}"></td>
+					<td th:text="${wort.sprache}"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<!--		
+		<li th:each="wort : ${woerterListe}" th:text="${wort.laenge}" />
+		-->
+	
+
+	</body>
+	
+</html>
