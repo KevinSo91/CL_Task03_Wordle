@@ -21,5 +21,10 @@ public class WortService {
 		return wortRepository.findAll();
 	}
 	
+
+	public List<Wort> findeAlleWoerterAusSprache(String sprache) {
+		return wortRepository.findeAlleWoerterAusSprache(sprache);
+	}
+	
 	
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value = {"/words", "woerter"})
+@RequestMapping(value = {"/words", "/woerter"})
 public class WortController {
 	
 	private final WortService wortService;
@@ -19,11 +19,21 @@ public class WortController {
 	
 	
 	
-	@GetMapping(value = {"/all", "alle"})
+	@GetMapping(value = {"/all", "/alle"})
 	public String zeigeWoerter(Model woerterModel){
 		woerterModel.addAttribute("woerterListe", wortService.findeAlleWoerter());
 		return "woerter";		
 	}
 	
-
+	@GetMapping(value = {"/german", "/deutsch", "/de"})
+	public String zeigeWoerterDE(Model woerterModel) {
+		woerterModel.addAttribute("woerterListe", wortService.findeAlleWoerterAusSprache("deutsch"));
+		return "woerter";
+	}
+	
+	@GetMapping(value = {"/english", "/englisch", "/en"})
+	public String zeigeWoerterEN(Model woerterModel) {
+		woerterModel.addAttribute("woerterListe", wortService.findeAlleWoerterAusSprache("englisch"));
+		return "woerter";
+	}
 }
