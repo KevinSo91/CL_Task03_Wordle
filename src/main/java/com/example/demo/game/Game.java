@@ -1,6 +1,8 @@
 package com.example.demo.game;
 
 public class Game {
+	
+	// ****************************************************** Attribute **********************************************************************
 		
 	private int wortLaenge;
 	
@@ -19,7 +21,8 @@ public class Game {
 	private Spielfeld spielfeld;
 	
 	
-	// Konstruktoren
+	// ***************************************************** Konstruktoren *********************************************************************
+	
 	
 	public Game(){		
 	}
@@ -32,7 +35,8 @@ public class Game {
 	}
 
 	
-	// Getter/Setter
+	// ***************************************************** Getter/Setter *********************************************************************
+
 	
 	public int getWortLaenge() {
 		return wortLaenge;
@@ -97,5 +101,16 @@ public class Game {
 	public void setSpielfeld(Spielfeld spielfeld) {
 		this.spielfeld = spielfeld;
 	}
+	
+	
+	// ***************************************************** Methoden *********************************************************************
+	
+	
+	public void pruefeEingabeWort() {
+		
+	}
+	
+	
+	
 	
 }
