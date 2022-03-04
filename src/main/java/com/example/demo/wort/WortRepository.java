@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WortRepository extends JpaRepository<Wort, Long>{
 
-//	@Query("SELECT * FROM Wort")
+//	@Query("SELECT * FROM wortschatz_table")
 //	List<Wort> findeAlleWoerter();
 	
 	@Query(value = "SELECT * FROM wortschatz_table WHERE sprache = ?1", nativeQuery = true)

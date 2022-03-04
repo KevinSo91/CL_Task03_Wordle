@@ -28,12 +28,14 @@ public class WortController {
 	@GetMapping(value = {"/german", "/deutsch", "/de"})
 	public String zeigeWoerterDE(Model woerterModel) {
 		woerterModel.addAttribute("woerterListe", wortService.findeAlleWoerterAusSprache("deutsch"));
+		woerterModel.addAttribute("sprache", "deutsch");
 		return "woerter";
 	}
 	
 	@GetMapping(value = {"/english", "/englisch", "/en"})
 	public String zeigeWoerterEN(Model woerterModel) {
 		woerterModel.addAttribute("woerterListe", wortService.findeAlleWoerterAusSprache("englisch"));
+		woerterModel.addAttribute("sprache", "englisch");
 		return "woerter";
 	}
 }

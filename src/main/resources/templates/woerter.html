@@ -1,12 +1,14 @@
-<html>
+<!DOCTYPE html >
 
 	<head>
-	
-		<title>Wordle - Liste Wörter</title>
+		
+		<meta charset="utf-8"/>	
 	
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
 		crossorigin="anonymous">
+		
+		<title>Wordle - Liste Wörter</title>
 				
 	</head>
 	
@@ -14,8 +16,11 @@
 	
 	<div class ="container">
 	
-		<h1 align="center">Liste aller Wörter:</h1>
+		<h1 align="center">Liste aller Wörter :</h1>		
 		<hr/>
+		Filter:
+		<p th:text="${sprache}" />
+		
 		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
@@ -38,6 +43,7 @@
 		<li th:each="wort : ${woerterListe}" th:text="${wort.laenge}" />
 		-->
 	
+	</div>
 
 	</body>
 	
