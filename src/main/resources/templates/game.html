@@ -3,7 +3,8 @@
 	<head>
 		
 		<meta charset="utf-8"/>		
-	
+		
+		<!-- Bootstrap -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
 		crossorigin="anonymous">
@@ -22,27 +23,27 @@
 			
 			<tr>
 				<td>
-					<form>
+					<form method="post">
 						<input type="text" maxlength="1" name="buchstabe00" th:value="${buchstabe00}">
 					</form>
 				</td>
 				<td>
-					<form>
+					<form method="post">
 						<input type="text" maxlength="1" name="buchstabe01" th:value="${buchstabe01}">
 					</form>
 				</td>
 				<td>
-					<form>
+					<form method="post">
 						<input type="text" maxlength="1" name="buchstabe02" th:value="${buchstabe02}">
 					</form>
 				</td>
 				<td>
-					<form>
+					<form method="post">
 						<input type="text" maxlength="1" name="buchstabe03" th:value="${buchstabe03}">
 					</form>
 				</td>
 				<td>
-					<form>
+					<form method="post">
 						<input type="text" maxlength="1" name="buchstabe04" th:value="${buchstabe04}">
 					</form>
 				</td>
@@ -52,7 +53,7 @@
 		
 		<br>
 				
-		<form align="center">
+		<form align="center" method="post">
 			<input type="submit" value="Prüfen">
 		</form>
 				
