@@ -15,7 +15,13 @@ public class Game {
 	
 	private String eingabeWort;
 	
+	char[] eingabeWortArray;
+	
 	private String loesungWort;
+	
+	char[] loesungWortArray;
+	
+	ArrayList<Character> loesungWortListe;
 	
 	private boolean erfolg;
 	
@@ -34,11 +40,17 @@ public class Game {
 	
 	public Game(String sprache, int wortLaenge, String loesungWort) {		
 		this.sprache = sprache;
-		this.loesungWort = loesungWort;
+		this.loesungWort = loesungWort.toUpperCase();
 		this.wortLaenge = wortLaenge;
 		this.versucheMax = wortLaenge;
 		this.versuche = 0;
-		this.spielfeld = new Spielfeld(versucheMax, wortLaenge);		
+		this.spielfeld = new Spielfeld(versucheMax, wortLaenge);
+		
+		loesungWortArray = loesungWort.toCharArray();
+		loesungWortListe = new ArrayList<Character>();
+		for(char c : loesungWortListe) {
+			loesungWortListe.add(c);
+		}
 	}
 
 	
@@ -66,7 +78,7 @@ public class Game {
 	}
 
 	public void setEingabeWort(String eingabeWort) {
-		this.eingabeWort = eingabeWort;
+		this.eingabeWort = eingabeWort.toUpperCase();
 	}
 
 	public String getLoesungWort() {
@@ -74,7 +86,7 @@ public class Game {
 	}
 
 	public void setLoesungWort(String loesungWort) {
-		this.loesungWort = loesungWort;
+		this.loesungWort = loesungWort.toUpperCase();
 	}
 
 	public boolean isErfolg() {
@@ -113,23 +125,20 @@ public class Game {
 	// ***************************************************** Methoden *********************************************************************
 	
 	public void eingabeWortSpeichern(String eingabe) {
-		this.eingabeWort = eingabe;
-//		// Fülle Felder mit EingabeWort
-//		for(char c : )
-//		spielfeld.getFelderArray()[this.versuche][stelleEingabe].setBuchstabe(eingabeChar);
 		
+		this.eingabeWort = eingabe.toUpperCase();
+		eingabeWortArray = eingabeWort.toCharArray();		
+		
+		// Fülle Felder mit EingabeWort
+		int stelleEingabe = 0;		
+		for(char buchstabe : eingabeWortArray) {
+			spielfeld.getFelderArray()[this.versuche][stelleEingabe] = new Feld(buchstabe);
+			stelleEingabe++;
+		}
 	}
 	
 	
 	public void pruefeEingabeWort() {
-		
-		char[] eingabeWortArray = eingabeWort.toCharArray();
-		char[] loesungWortArray = loesungWort.toCharArray();
-		
-		ArrayList<Character> charListe = new ArrayList<Character>();
-		for(char c : loesungWortArray) {
-			charListe.add(c);
-		}
 		
 		
 		// Fall: richtige Lösung
@@ -139,13 +148,16 @@ public class Game {
 			for(char eingabeChar : eingabeWortArray) {
 				
 			// Setze Buchstaben und Farbe in Feld
-			spielfeld.getFelderArray()[this.versuche][i].setBuchstabe(eingabeChar);
+//			spielfeld.getFelderArray()[this.versuche][i].setBuchstabe(eingabeChar);
 			spielfeld.getFelderArray()[this.versuche][i].setFarbe("green");
 			
 			i++;
+			
 			}
 			
 			erfolg = true;
+			System.out.print("\nErfolg !\n");
+			
 		}//ENDE richtige Lösung
 		
 		// Fall: falsche Lösung
@@ -155,13 +167,13 @@ public class Game {
 			// Iteriere über Buchstaben der Eingabe
 			for(char eingabeChar : eingabeWortArray) {
 				
-				// Setze Buchstaben in Feld
-				spielfeld.getFelderArray()[this.versuche][stelleEingabe].setBuchstabe(eingabeChar);
+//				// Setze Buchstaben in Feld
+//				spielfeld.getFelderArray()[this.versuche][stelleEingabe].setBuchstabe(eingabeChar);
 				
 				// Prüfe auf 'Treffer' und setze entsprechende Farbe
 				
 				// Fall: Buchstabe nicht in Lösung vorhanden
-				if(!charListe.contains(eingabeChar))
+				if(!loesungWortListe.contains(eingabeChar))
 				{
 					spielfeld.getFelderArray()[this.versuche][stelleEingabe].setFarbe("gray");
 				}
@@ -179,39 +191,25 @@ public class Game {
 						spielfeld.getFelderArray()[this.versuche][stelleEingabe].setFarbe("orange");
 //						// Bei mehrfachem Vorkommen des gleich Buchstaben -> Prüfe auf weitere Vorkommen
 //						loesungWortArray[stelleEingabe] = ' ';
-					}
-					
+					}				
+				
 				}
-					
-					
-//				// Fall: Buchstabe in Lösung vorhanden
-//				else{
-//					int stelleLoesung = 0;
-//					// Iteriere über Buchstaben der Lösung
-//					for(char loesungChar : loesungWortArray) {
-//						
-//						if(eingabeChar == loesungChar) {
-//							spielfeld.getFelder()[this.versuche][stelleEingabe].setFarbe("orange");
-//							
-//							if(stelleEingabe == stelleLoesung) {
-//								spielfeld.getFelder()[this.versuche][stelleEingabe].setFarbe("green");
-//								break;
-//							}
-//							
-//						}
-//					}					
-//					
-//					if(contains(loesungWortArray,'c')) {//						
-//					}
-					
-				
-				
-				
+								
 			}
+			
 			erfolg = false;
+			System.out.print("\nKein Erfolg !\n");
+			
 		}//ENDE flasche Lösung
 		
+		for(Feld feld : spielfeld.getFelderArray()[versuche]) {
+			System.out.print(feld.getFarbe());			
+		}
+		System.out.print("\n");
+			
+			
 		versuche++;
+				
 	}//ENDE pruefeEingabe()	
 	
 	

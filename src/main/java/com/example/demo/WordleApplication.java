@@ -12,13 +12,14 @@ public class WordleApplication {
 		//SpringApplication.run(WordleApplication.class, args);
 		
 		//****************************** TEST ***********************************
-		System.out.print("test:\n");
+		System.out.print("Start: test\n");
 		
 		GameService gameservice = new GameService();
 		gameservice.starteSpiel("deutsch", 4, "Hund");
-		gameservice.getGame().setEingabeWort("Hand");
+		gameservice.getGame().eingabeWortSpeichern("Hund");
 		gameservice.getGame().pruefeEingabeWort();
 		
+		System.out.print("\nEnde: test\n");
 		//**************************** ENDE TEST *********************************
 	}
 

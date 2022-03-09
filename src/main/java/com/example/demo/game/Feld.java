@@ -10,6 +10,10 @@ public class Feld {
 	public Feld() {		
 	}
 	
+	public Feld(char buchstabe) {
+		this.buchstabe = buchstabe;
+	}
+	
 	
 
 	public char getBuchstabe() {
