@@ -10,6 +10,7 @@ public class GameService {
 	
 	@Autowired
 	public GameService() {
+		starteSpiel("deutsch", 5, "Hunde");
 	}
 	
 	public void starteSpiel(String sprache, int wortLaenge, String loesungWort) {	

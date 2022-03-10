@@ -19,11 +19,28 @@ public class GameController {
 		this.gameService = gameService;		
 	}
 	
-	@GetMapping
-	public String zeigeGame(Model model){
+	@GetMapping(value = "/spielfeld")
+	public String zeigeSpielfeld(Model modelSpielfeld){
 		
+		modelSpielfeld.addAttribute("spielfeld", gameService.getGame().getSpielfeld().getFelderArray());
+		
+//		// Erstelle für das model die Attribute für alle Felder
+//		int zaehlerVersuch = 0;
+//		for(Feld[] versuch : gameService.getGame().getSpielfeld().getFelderArray()) {
+//			
+//			modelSpielfeld.addAttribute("Versuch" + zaehlerVersuch);
+//			
+//			modelSpielfeld.add
+//			int zaehlerFeld = 0;
+//			for(Feld feld : versuch) {
+//				
+//				modelSpielfeld.addAttribute("feld" + zaehlerVersuch + zaehlerFeld).add;
+//				zaehlerFeld++;
+//			}
+//			zaehlerVersuch++;
+//		}
 	
-		return "game";
+		return "spielfeld";
 	}
 	
 //	@GetMapping
