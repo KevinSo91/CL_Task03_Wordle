@@ -9,7 +9,7 @@ import com.example.demo.game.GameService;
 public class WordleApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(WordleApplication.class, args);
+		SpringApplication.run(WordleApplication.class, args);
 		
 		//****************************** TEST ***********************************
 		System.out.print("Start: test\n");

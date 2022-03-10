@@ -19,4 +19,8 @@ public interface WortRepository extends JpaRepository<Wort, Long>{
 	@Query(value = "SELECT * FROM wortschatz_table WHERE sprache = ?1", nativeQuery = true)
 	List<Wort> findeAlleWoerterAusSprache(String sprache);
 	
+	@Query(value = "SELECT * FROM wortschatz_table WHERE (sprache = ?1 AND laenge = ?2)", nativeQuery = true)
+	List<Wort> findeAlleWoerterAusSpracheMitWortlaenge(String sprache, int laenge);
+	
+	
 }

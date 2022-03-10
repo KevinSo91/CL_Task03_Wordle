@@ -1,6 +1,7 @@
 package com.example.demo.wort;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,9 +22,19 @@ public class WortService {
 		return wortRepository.findAll();
 	}
 	
-
 	public List<Wort> findeAlleWoerterAusSprache(String sprache) {
 		return wortRepository.findeAlleWoerterAusSprache(sprache);
+	}
+	
+	public List<Wort> findeAlleWoerterAusSpracheMitWortlaenge(String sprache, int laenge) {
+		return wortRepository.findeAlleWoerterAusSpracheMitWortlaenge(sprache, laenge);
+	}
+	
+	public String findeZufallsWortAusSpracheMitWortlaenge(String sprache, int laenge) {
+		long anzahlWoerter = findeAlleWoerterAusSpracheMitWortlaenge(sprache, laenge).size();
+		Random zufalls = new Random();
+		int zufallsZahl = zufalls.nextInt((int) anzahlWoerter);
+		return findeAlleWoerterAusSpracheMitWortlaenge(sprache, laenge).get(zufallsZahl).getWort();
 	}
 	
 	

@@ -38,4 +38,10 @@ public class WortController {
 		woerterModel.addAttribute("sprache", "englisch");
 		return "woerter";
 	}
+		
+	@GetMapping(value = {"/zufall", "/random"})
+	public String zufall(Model wortModel){
+		wortModel.addAttribute("zufallWort", wortService.findeZufallsWortAusSpracheMitWortlaenge("englisch", 5));
+		return "zufall";
+	}
 }
