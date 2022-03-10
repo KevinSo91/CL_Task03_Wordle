@@ -12,6 +12,7 @@ public class Feld {
 	
 	public Feld(char buchstabe) {
 		this.buchstabe = buchstabe;
+		this.farbe = "white";
 	}
 	
 	

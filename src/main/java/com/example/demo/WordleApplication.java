@@ -15,8 +15,8 @@ public class WordleApplication {
 		System.out.print("Start: test\n");
 		
 		GameService gameservice = new GameService();
-		gameservice.starteSpiel("deutsch", 4, "Hund");
-		gameservice.getGame().eingabeWortSpeichern("Hund");
+		gameservice.starteSpiel("deutsch", 5, "Hunde");
+		gameservice.getGame().eingabeWortSpeichern("Hande");
 		gameservice.getGame().pruefeEingabeWort();
 		
 		System.out.print("\nEnde: test\n");

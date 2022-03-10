@@ -46,9 +46,9 @@ public class Game {
 		this.versuche = 0;
 		this.spielfeld = new Spielfeld(versucheMax, wortLaenge);
 		
-		loesungWortArray = loesungWort.toCharArray();
+		loesungWortArray = this.loesungWort.toCharArray();
 		loesungWortListe = new ArrayList<Character>();
-		for(char c : loesungWortListe) {
+		for(char c : loesungWortArray) {
 			loesungWortListe.add(c);
 		}
 	}
@@ -138,20 +138,18 @@ public class Game {
 	}
 	
 	
-	public void pruefeEingabeWort() {
-		
+	public void pruefeEingabeWort() {		
 		
 		// Fall: richtige Lösung
-		if(eingabeWort == loesungWort) {			
+		if(eingabeWort.equals(loesungWort)) {			
 			
-			int i = 0;
+			int indexFeld = 0;
 			for(char eingabeChar : eingabeWortArray) {
 				
-			// Setze Buchstaben und Farbe in Feld
-//			spielfeld.getFelderArray()[this.versuche][i].setBuchstabe(eingabeChar);
-			spielfeld.getFelderArray()[this.versuche][i].setFarbe("green");
+			// Setze Farbe in Feldern auf Grün
+			spielfeld.getFelderArray()[this.versuche][indexFeld].setFarbe("green");
 			
-			i++;
+			indexFeld++;
 			
 			}
 			
@@ -194,7 +192,8 @@ public class Game {
 					}				
 				
 				}
-								
+				
+				stelleEingabe++;
 			}
 			
 			erfolg = false;
@@ -202,9 +201,17 @@ public class Game {
 			
 		}//ENDE flasche Lösung
 		
+		//********** Test ************			
+		
+		System.out.print("Lösung:  " + this.loesungWort + "\n");
+		System.out.print("Eingabe: " + this.eingabeWort + "\n");
+		
 		for(Feld feld : spielfeld.getFelderArray()[versuche]) {
-			System.out.print(feld.getFarbe());			
+			System.out.print(feld.getFarbe() + " ");
+			
+		//********ENDE Test **********
 		}
+		
 		System.out.print("\n");
 			
 			

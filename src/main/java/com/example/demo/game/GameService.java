@@ -22,6 +22,11 @@ public class GameService {
 		return game;
 	}
 	
+	public void pruefeEingabe(String eingabe) {
+		this.game.eingabeWortSpeichern(eingabe);
+		this.game.pruefeEingabeWort();
+	}
+	
 	
 	
 }
