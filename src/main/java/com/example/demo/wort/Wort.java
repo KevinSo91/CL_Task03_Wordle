@@ -43,17 +43,11 @@ public class Wort {
 		this(wort);
 		this.sprache = sprache;		
 	}
-//	public Wort(String wort, String sprache) {
-//		this.wort = wort.toUpperCase();
-//		this.laenge = wort.length();
-//		this.setSprache(sprache);		
-//	}
-	
-	
-	// Getter/Setter
+
 	public String getWort() {
 		return this.wort;
 	}
+
 	public void setWort(String wort) {
 		this.wort = wort.toUpperCase();
 		this.laenge = wort.length();
@@ -61,7 +55,8 @@ public class Wort {
 	
 	public int getLaenge() {
 		return this.laenge;
-	}	
+	}
+
 	public String getSprache() {
 		return sprache;
 	}

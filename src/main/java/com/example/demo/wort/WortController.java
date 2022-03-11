@@ -16,9 +16,7 @@ public class WortController {
 	public WortController(WortService wortService) {
 		this.wortService = wortService;
 	}
-	
-	
-	
+
 	@GetMapping(value = {"/all", "/alle"})
 	public String zeigeWoerter(Model woerterModel){
 		woerterModel.addAttribute("woerterListe", wortService.findeAlleWoerter());
